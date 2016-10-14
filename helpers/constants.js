@@ -10,7 +10,7 @@ module.exports = {
 		send: 10000000,
 		vote: 100000000,
 		secondsignature: 500000000,
-		delegate: 2500000000,
+		delegate: 6000000000,
 		multisignature: 500000000,
 		dapp: 2500000000
 	},
@@ -30,16 +30,16 @@ module.exports = {
 	requestLength: 104,
 	rewards: {
 		milestones: [
-			500000000, // Initial Reward
-			400000000, // Milestone 1
-			300000000, // Milestone 2
-			200000000, // Milestone 3
-			100000000  // Milestone 4
+            100000000,  // Initial reward
+            70000000,  // Milestone 1
+            50000000,  // Milestone 2
+            30000000,  // Milestone 3
+            20000000   // Milestone 4
 		],
-		offset: 1451520,   // Start rewards at block (n)
+		offset: 10,   // Start rewards at block (n)
 		distance: 3000000, // Distance between each milestone
 	},
 	signatureLength: 196,
-	totalAmount: 10000000000000000,
+	totalAmount: 1009000000000000,
 	unconfirmedTransactionTimeOut: 10800 // 1080 blocks
 };

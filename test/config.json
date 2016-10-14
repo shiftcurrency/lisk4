@@ -3,13 +3,13 @@
     "address": "0.0.0.0",
     "version": "0.0.0",
     "fileLogLevel": "info",
-    "logFileName": "logs/lisk.log",
+    "logFileName": "logs/shift.log",
     "consoleLogLevel": "debug",
     "trustProxy": false,
     "db": {
         "host": "localhost",
         "port": 5432,
-        "database": "lisk_test",
+        "database": "shift_test",
         "user": null,
         "password": "password",
         "poolSize": 20,
@@ -166,8 +166,8 @@
         "options": {
             "port": 443,
             "address": "0.0.0.0",
-            "key": "./ssl/lisk.key",
-            "cert": "./ssl/lisk.crt"
+            "key": "./ssl/shift.key",
+            "cert": "./ssl/shift.crt"
         }
     },
     "dapp": {

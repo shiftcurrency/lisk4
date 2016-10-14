@@ -3,7 +3,7 @@
 var constants = require('./constants.js');
 
 /**
- * Get time from Lisk epoch.
+ * Get time from Shift epoch.
  * @param {number|undefined} time Time in unix seconds
  * @returns {number}
  */
@@ -26,7 +26,7 @@ function getEpochTime (time) {
 }
 
 module.exports = {
-	interval: 10,
+	interval: 27,
 	delegates: constants.activeDelegates,
 
 	getTime: function (time) {

@@ -18,13 +18,13 @@ function putDelegate (params, done) {
 	node.put('/api/delegates', params, done);
 }
 
-function sendLISK (account, done) {
-	var randomLISK = node.randomLISK();
-	var expectedFee = node.expectedFee(randomLISK);
+function sendSHIFT (account, done) {
+	var randomSHIFT = node.randomSHIFT();
+	var expectedFee = node.expectedFee(randomSHIFT);
 
 	putTransaction({
 		secret: node.gAccount.password,
-		amount: randomLISK,
+		amount: randomSHIFT,
 		recipientId: account.address
 	}, function (err, res) {
 		node.expect(res.body).to.have.property('success').to.be.ok;
@@ -34,13 +34,13 @@ function sendLISK (account, done) {
 
 before(function (done) {
 	setTimeout(function () {
-		sendLISK(account, done);
+		sendSHIFT(account, done);
 	}, 2000);
 });
 
 before(function (done) {
 	setTimeout(function () {
-		sendLISK(account2, done);
+		sendSHIFT(account2, done);
 	}, 2000);
 });
 
@@ -66,7 +66,7 @@ describe('PUT /api/signatures', function () {
 
 		putSignature(validParams, function (err, res) {
 			node.expect(res.body).to.have.property('success').to.be.not.ok;
-			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough LSK: [0-9]+L balance: 0/);
+			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough SHIFT: [0-9]+L balance: 0/);
 			done();
 		});
 	});
@@ -76,7 +76,7 @@ describe('PUT /api/signatures', function () {
 
 		putSignature(validParams, function (err, res) {
 			node.expect(res.body).to.have.property('success').to.be.not.ok;
-			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough LSK: [0-9]+L balance: 0/);
+			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough SHIFT: [0-9]+L balance: 0/);
 			done();
 		});
 	});

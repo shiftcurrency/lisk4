@@ -483,7 +483,7 @@ Transaction.prototype.apply = function (trs, block, sender, cb) {
 
 	if (trs.blockId !== genesisblock.block.id && exceedsBalance) {
 		return setImmediate(cb, [
-			'Account does not have enough LSK:', sender.address,
+			'Account does not have enough SHIFT:', sender.address,
 			'balance:', bignum(sender.u_balance || 0).div(Math.pow(10,8))
 		].join(' '));
 	}
@@ -577,7 +577,7 @@ Transaction.prototype.applyUnconfirmed = function (trs, sender, requester, cb) {
 
 	if (trs.blockId !== genesisblock.block.id && exceedsBalance) {
 		return setImmediate(cb, [
-			'Account does not have enough LSK:', sender.address,
+			'Account does not have enough SHIFT:', sender.address,
 			'balance:', bignum(sender.balance || 0).div(Math.pow(10,8))
 		].join(' '));
 	}

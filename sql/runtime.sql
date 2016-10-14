@@ -1,4 +1,4 @@
-/* Lisk Runtime
+/* Shift Runtime
  *
  */
 

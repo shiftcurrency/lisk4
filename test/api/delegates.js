@@ -8,7 +8,7 @@ function openAccount (params, done) {
 	});
 }
 
-function sendLISK (params, done) {
+function sendSHIFT (params, done) {
 	node.put('/api/transactions/', params, function (err, res) {
 		done(err, res);
 	});
@@ -40,7 +40,7 @@ describe('PUT /api/accounts/delegates without funds', function () {
 			delegates: ['+' + node.eAccount.publicKey]
 		}, function (err, res) {
 			node.expect(res.body).to.have.property('success').to.be.not.ok;
-			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough LSK: [0-9]+L balance: 0/);
+			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough SHIFT: [0-9]+L balance: 0/);
 			done();
 		});
 	});
@@ -71,7 +71,7 @@ describe('PUT /api/delegates without funds', function () {
 			username: account.username
 		}, function (err, res) {
 			node.expect(res.body).to.have.property('success').to.be.not.ok;
-			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough LSK: [0-9]+L balance: 0/);
+			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough SHIFT: [0-9]+L balance: 0/);
 			done();
 		});
 	});
@@ -81,9 +81,9 @@ describe('PUT /api/accounts/delegates with funds', function () {
 	var account = node.randomAccount();
 
 	before(function (done) {
-		sendLISK({
+		sendSHIFT({
 			secret: node.gAccount.password,
-			amount: node.LISK,
+			amount: node.SHIFT,
 			recipientId: account.address
 		}, function (err, res) {
 			node.expect(res.body).to.have.property('success').to.be.ok;
@@ -263,9 +263,9 @@ describe('PUT /api/delegates with funds', function () {
 	});
 
 	beforeEach(function (done) {
-		sendLISK({
+		sendSHIFT({
 			secret: node.gAccount.password,
-			amount: node.LISK,
+			amount: node.SHIFT,
 			recipientId: account.address
 		}, function (err, res) {
 			node.expect(res.body).to.have.property('success').to.be.ok;
@@ -648,9 +648,9 @@ describe('GET /api/delegates/voters', function () {
 	var account = node.randomAccount();
 
 	before(function (done) {
-		sendLISK({
+		sendSHIFT({
 			secret: node.gAccount.password,
-			amount: node.LISK,
+			amount: node.SHIFT,
 			recipientId: account.address
 		}, function (err, res) {
 			node.expect(res.body).to.have.property('success').to.be.ok;

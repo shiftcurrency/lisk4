@@ -30,7 +30,7 @@ __private.getAddressByPublicKey = function (publicKey) {
 		temp[i] = publicKeyHash[7 - i];
 	}
 
-	var address = bignum.fromBuffer(temp).toString() + 'L';
+	var address = bignum.fromBuffer(temp).toString() + 'S';
 	return address;
 };
 

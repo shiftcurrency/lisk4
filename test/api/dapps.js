@@ -29,28 +29,28 @@ function putTransaction (params, done) {
 }
 
 before(function (done) {
-	// Send to LISK to account 1 address
+	// Send to SHIFT to account 1 address
 	setTimeout(function () {
-		var randomLISK = node.randomLISK();
-		var expectedFee = node.expectedFee(randomLISK);
+		var randomSHIFT = node.randomSHIFT();
+		var expectedFee = node.expectedFee(randomSHIFT);
 
 		putTransaction({
 			secret: node.gAccount.password,
-			amount: randomLISK,
+			amount: randomSHIFT,
 			recipientId: account.address
 		}, done);
 	}, 2000);
 });
 
 before(function (done) {
-	// Send to LISK to account 2 address
+	// Send to SHIFT to account 2 address
 	setTimeout(function () {
-		var randomLISK = node.randomLISK();
-		var expectedFee = node.expectedFee(randomLISK);
+		var randomSHIFT = node.randomSHIFT();
+		var expectedFee = node.expectedFee(randomSHIFT);
 
 		putTransaction({
 			secret: node.gAccount.password,
-			amount: randomLISK,
+			amount: randomSHIFT,
 			recipientId: account2.address
 		}, done);
 	}, 2000);
@@ -87,7 +87,7 @@ describe('PUT /dapps', function () {
 
 		node.put('/api/dapps', validParams, function (err, res) {
 			node.expect(res.body).to.have.property('success').to.be.not.ok;
-			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough LSK: [0-9]+L balance: 0/);
+			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough SHIFT: [0-9]+L balance: 0/);
 			done();
 		});
 	});
@@ -305,7 +305,7 @@ describe('PUT /api/dapps/transaction', function () {
 
 		putTransaction(validParams, function (err, res) {
 			node.expect(res.body).to.have.property('success').to.not.be.ok;
-			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough LSK: [0-9]+L balance: 0/);
+			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough SHIFT: [0-9]+L balance: 0/);
 			done();
 		});
 	});
@@ -466,9 +466,9 @@ describe('PUT /api/dapps/withdrawal', function () {
 	var validParams;
 
 	beforeEach(function (done) {
-		var keys = node.lisk.crypto.getKeys(account.password);
-		var recipientId = node.lisk.crypto.getAddress(keys.publicKey);
-		var transaction = node.lisk.transaction.createTransaction('1L', 100000000, account.password);
+		var keys = node.shift.crypto.getKeys(account.password);
+		var recipientId = node.shift.crypto.getAddress(keys.publicKey);
+		var transaction = node.shift.transaction.createTransaction('1L', 100000000, account.password);
 
 		validParams = {
 			secret: account.password,
@@ -498,7 +498,7 @@ describe('PUT /api/dapps/withdrawal', function () {
 
 		putWithdrawal(validParams, function (err, res) {
 			node.expect(res.body).to.have.property('success').to.not.be.ok;
-			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough LSK: [0-9]+L balance: 0/);
+			node.expect(res.body).to.have.property('error').to.match(/Account does not have enough SHIFT: [0-9]+L balance: 0/);
 			done();
 		});
 	});

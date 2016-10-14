@@ -534,10 +534,10 @@ Loader.prototype.onPeersReady = function () {
 					library.logger.warn('Blocks timer', err);
 				}
 
-				setTimeout(nextLoadBlock, 10000);
+				setTimeout(nextLoadBlock, 27000);
 			});
 		} else {
-			setTimeout(nextLoadBlock, 10000);
+			setTimeout(nextLoadBlock, 27000);
 		}
 	});
 
@@ -549,10 +549,10 @@ Loader.prototype.onPeersReady = function () {
 					library.logger.warn('Unconfirmed transactions timer', err);
 				}
 
-				setTimeout(nextLoadUnconfirmedTransactions, 14000);
+				setTimeout(nextLoadUnconfirmedTransactions, 31000);
 			});
 		} else {
-			setTimeout(nextLoadUnconfirmedTransactions, 14000);
+			setTimeout(nextLoadUnconfirmedTransactions, 31000);
 		}
 	});
 
@@ -564,10 +564,10 @@ Loader.prototype.onPeersReady = function () {
 					library.logger.warn('Signatures timer', err);
 				}
 
-				setTimeout(nextLoadSignatures, 14000);
+				setTimeout(nextLoadSignatures, 31000);
 			});
 		} else {
-			setTimeout(nextLoadSignatures, 14000);
+			setTimeout(nextLoadSignatures, 31000);
 		}
 	});
 };
