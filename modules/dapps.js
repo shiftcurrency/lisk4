@@ -1267,7 +1267,7 @@ __private.sendWithdrawal = function (req, cb) {
 		var keypair = library.ed.makeKeypair(hash);
 		var query = {};
 
-		var isAddress = /^[0-9]{1,21}[L|l]$/g;
+		var isAddress = /^[0-9]{1,21}[S|s]$/g;
 		if (!isAddress.test(req.body.recipientId)) {
 			return setImmediate(cb, 'Invalid recipient');
 		}

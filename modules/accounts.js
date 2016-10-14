@@ -253,7 +253,7 @@ shared.getBalance = function (req, cb) {
 			return setImmediate(cb, err[0].message);
 		}
 
-		var isAddress = /^[0-9]{1,21}[L|l]$/g;
+		var isAddress = /^[0-9]{1,21}[S|s]$/g;
 		if (!isAddress.test(req.body.address)) {
 			return setImmediate(cb, 'Invalid address');
 		}
@@ -277,7 +277,7 @@ shared.getPublickey = function (req, cb) {
 			return setImmediate(cb, err[0].message);
 		}
 
-		var isAddress = /^[0-9]{1,21}[L|l]$/g;
+		var isAddress = /^[0-9]{1,21}[S|s]$/g;
 		if (!isAddress.test(req.body.address)) {
 			return setImmediate(cb, 'Invalid address');
 		}
@@ -480,7 +480,7 @@ shared.getAccount = function (req, cb) {
 			return setImmediate(cb, err[0].message);
 		}
 
-		var isAddress = /^[0-9]{1,21}[L|l]$/g;
+		var isAddress = /^[0-9]{1,21}[S|s]$/g;
 		if (!isAddress.test(req.body.address)) {
 			return setImmediate(cb, 'Invalid address');
 		}
